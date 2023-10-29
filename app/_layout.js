@@ -10,14 +10,14 @@ export default function Base() {
   const loadingRef = useRef(loading)
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setUser(user)
-      if (!user) router.replace('/register')
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null, session)
+      if (!session) router.replace('/register')
     })
 
     supabase.auth.onAuthStateChange((_, session) => {
       if (loadingRef.current) return
-      setUser(session?.user ?? null)
+      setUser(session?.user ?? null, session)
       if (session) router.replace('/')
       else router.replace('/register')
     })
