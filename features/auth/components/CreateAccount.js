@@ -20,7 +20,7 @@ export default function CreateAccount() {
     if (!name) return Alert.alert('You must enter you name')
     if (!username) return Alert.alert('You must enter a username')
     setLoading(true)
-    const { error, data: account } = await supabase
+    const { error, data: accounts } = await supabase
       .from('accounts')
       .insert([{ username: username.trim(), name: name.trim() }])
       .select()
@@ -28,7 +28,7 @@ export default function CreateAccount() {
     setLoading(false)
     if (error) return Alert.alert('Failed to create', error.message)
 
-    setAccount(account[0])
+    setAccount(accounts[0])
   }
 
   useEffect(() => {
