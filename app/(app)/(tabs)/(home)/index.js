@@ -10,7 +10,7 @@ export default function Home() {
 
   const { signOut } = useAuthForm()
 
-  if (loading) return null
+  if (loading || !account) return null
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome {account.username}!</Text>

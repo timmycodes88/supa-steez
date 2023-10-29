@@ -1,4 +1,4 @@
-import { Slot, SplashScreen, router } from 'expo-router'
+import { Slot, SplashScreen, useRouter } from 'expo-router'
 import { useEffect, useRef } from 'react'
 import useUser from '../hooks/useUser'
 import supabase from '../lib/supabase'
@@ -6,7 +6,9 @@ import supabase from '../lib/supabase'
 SplashScreen.preventAutoHideAsync()
 
 export default function Base() {
-  const { setSession, setUser, setAccount, loading, setLoading } = useUser()
+  const router = useRouter()
+  const { setSession, setUser, setAccount, loading, setLoading, clear } =
+    useUser()
   const loadingRef = useRef(loading)
 
   useEffect(() => {
@@ -25,7 +27,14 @@ export default function Base() {
         .eq('id', session.user.id)
         .single()
 
-      if (!account) return router.replace('/create-account')
+      console.log(account)
+
+      if (!account) {
+        console.log('Seeing this')
+        setLoading(false)
+        router.replace('/create-account')
+        return
+      }
 
       setAccount(account)
       setLoading(false)
@@ -36,6 +45,7 @@ export default function Base() {
       setSession(session)
       setUser(session?.user ?? null, session)
       if (!session) {
+        clear()
         router.replace('/register')
         setLoading(false)
         return
