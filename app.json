@@ -8,7 +8,7 @@
       "expo-router"
     ],
     "orientation": "portrait",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "icon": "./assets/images/icon.png",
     "name": "Supaverse",
     "slug": "supaverse",
@@ -16,12 +16,15 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "cover"
     },
+    "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "1.0.0",
+      "buildNumber": "1.0.2",
+      "userInterfaceStyle": "automatic",
       "bundleIdentifier": "com.brightsidedeveloper.supaverse"
     },
     "android": {
+      "userInterfaceStyle": "automatic",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFFFFF"
