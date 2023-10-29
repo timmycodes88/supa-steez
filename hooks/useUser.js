@@ -4,7 +4,11 @@ const useUser = create(set => ({
   loading: true,
   user: null,
   session: null,
-  setUser: (user, session) => set({ user, session, loading: false }),
+  account: {},
+  setSession: session => set({ session }),
+  setUser: user => set({ user }),
+  setAccount: account => set({ account }),
+  setLoading: loading => set({ loading }),
 }))
 
 export default useUser

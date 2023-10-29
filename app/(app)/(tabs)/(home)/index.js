@@ -6,13 +6,14 @@ import homeStyles from '../../../../features/home/styles'
 
 export default function Home() {
   const { styles } = useTheme(homeStyles)
-  const { loading } = useUser()
+  const { loading, account } = useUser()
 
   const { signOut } = useAuthForm()
 
   if (loading) return null
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>Welcome {account.username}!</Text>
       <TouchableOpacity onPress={signOut}>
         <Text style={styles.text}>Sign Out</Text>
       </TouchableOpacity>
