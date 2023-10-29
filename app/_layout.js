@@ -1,8 +1,8 @@
-import { Slot, SplashScreen, useRouter } from 'expo-router'
-import { useEffect, useRef } from 'react'
-import useUserStore from '../hooks/useUserStore'
-import supabase from '../lib/supabase'
-import { View, useColorScheme } from 'react-native'
+import { Slot, SplashScreen, useRouter } from "expo-router"
+import { useEffect, useRef } from "react"
+import useUserStore from "../hooks/useUserStore"
+import supabase from "../lib/supabase"
+import { View, useColorScheme } from "react-native"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -13,24 +13,31 @@ export default function Base() {
   const loadingRef = useRef(loading)
 
   useEffect(() => {
+    setSession({})
+    setUser({ id: "123" })
+    setAccount({ id: "123", username: "tim88", name: "Tim Van lerberg" })
+    setLoading(false)
+  }, [])
+  useEffect(() => {
+    if (true) return
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session)
       setUser(session?.user ?? null)
       if (!session) {
-        router.replace('/register')
+        router.replace("/register")
         setLoading(false)
         return
       }
 
       const { data: account } = await supabase
-        .from('accounts')
+        .from("accounts")
         .select()
-        .eq('id', session.user.id)
+        .eq("id", session.user.id)
         .single()
 
       if (!account) {
         setLoading(false)
-        router.replace('/create-account')
+        router.replace("/create-account")
         return
       }
 
@@ -44,23 +51,23 @@ export default function Base() {
       setUser(session?.user ?? null, session)
       if (!session) {
         clear()
-        router.replace('/register')
+        router.replace("/register")
         setLoading(false)
         return
       }
 
       // * Get Account (and create if not exists)
       const { data: account } = await supabase
-        .from('accounts')
+        .from("accounts")
         .select()
-        .eq('id', session.user.id)
+        .eq("id", session.user.id)
         .single()
 
-      if (!account) return router.replace('/create-account')
+      if (!account) return router.replace("/create-account")
 
       setAccount(account)
       setLoading(false)
-      router.replace('/')
+      router.replace("/")
     })
   }, [])
 
@@ -71,7 +78,7 @@ export default function Base() {
     setTimeout(() => (loadingRef.current = false), 10)
   }, [loading])
 
-  const dark = useColorScheme() === 'dark'
+  const dark = useColorScheme() === "dark"
 
   return (
     <View style={{ flex: 1 }}>

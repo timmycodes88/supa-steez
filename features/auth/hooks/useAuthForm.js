@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import supabase from '../../../lib/supabase'
-import { Alert } from 'react-native'
+import { useState } from "react"
+import supabase from "../../../lib/supabase"
+import { Alert } from "react-native"
 
 /**
  * @typedef {Object} UseAuthForm
@@ -19,9 +19,9 @@ import { Alert } from 'react-native'
  * @returns {UseAuthForm}
  */
 export default function useAuthForm() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [loading, setLoading] = useState(false)
 
   async function signInWithEmail() {
@@ -31,7 +31,7 @@ export default function useAuthForm() {
       password,
     })
 
-    if (error) Alert.alert('Failed to Login', error.message)
+    if (error) Alert.alert("Failed to Login", error.message)
     setLoading(false)
   }
 
@@ -45,15 +45,15 @@ export default function useAuthForm() {
       password,
     })
 
-    if (error) Alert.alert('Failed to Register', error.message)
+    if (error) Alert.alert("Failed to Register", error.message)
     else if (!session)
-      Alert.alert('Awesome!', 'Check your email for the confirmation link')
+      Alert.alert("Awesome!", "Check your email for the confirmation link")
     setLoading(false)
   }
 
   async function signOut() {
     const { error } = await supabase.auth.signOut()
-    if (error) Alert.alert('Failed to Sign Out', error.message)
+    if (error) Alert.alert("Failed to Sign Out", error.message)
   }
 
   return {

@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text } from "react-native"
+import GroupList from "../../../../features/messages/GroupList"
 
 export default function Messages() {
   return (
     <View>
-      <Text>Messages</Text>
+      <GroupList />
     </View>
   )
 }

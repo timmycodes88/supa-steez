@@ -1,32 +1,25 @@
-import { COLORS } from '@constants/theme'
+import { COLORS } from "@constants/theme"
 
 const Home = {
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   card: {
-    width: '100%',
+    width: "100%",
     marginVertical: 8,
     padding: 16,
     gap: 12,
     borderBottomWidth: 1,
   },
-  avatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   header: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: 8,
   },
   name: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   username: {
     fontSize: 14,
@@ -35,7 +28,7 @@ const Home = {
   date: {
     fontSize: 14,
     opacity: 0.6,
-    marginLeft: 'auto',
+    marginLeft: "auto",
   },
   content: {
     flex: 1,
@@ -46,11 +39,11 @@ const Home = {
     marginTop: 8,
     flex: 1,
     aspectRatio: 1,
-    resizeMode: 'cover',
-    width: '100%',
+    resizeMode: "cover",
+    width: "100%",
   },
   footer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 24,
     marginTop: 8,
   },
@@ -64,10 +57,6 @@ const lightHome = {
   card: {
     ...Home.card,
     borderBottomColor: COLORS.light.mutedBackground,
-  },
-  avatar: {
-    ...Home.avatar,
-    backgroundColor: COLORS.light.secondary,
   },
   header: Home.header,
   name: {
@@ -100,12 +89,7 @@ const darkHome = {
     ...Home.card,
     borderBottomColor: COLORS.dark.mutedBackground,
   },
-  avatar: {
-    ...Home.avatar,
-    backgroundColor: COLORS.dark.secondary,
-  },
   header: Home.header,
-
   name: {
     ...Home.name,
     color: COLORS.dark.foreground,

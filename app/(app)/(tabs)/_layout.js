@@ -1,7 +1,7 @@
-import { Octicons } from '@expo/vector-icons'
-import { Tabs } from 'expo-router'
-import { useColorScheme } from 'react-native'
-import { COLORS } from '../../../constants/theme'
+import { Octicons } from "@expo/vector-icons"
+import { Link, Tabs } from "expo-router"
+import { TouchableOpacity, useColorScheme } from "react-native"
+import { COLORS } from "../../../constants/theme"
 
 export default function TabsLayout() {
   const theme = useColorScheme()
@@ -27,38 +27,45 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name='(home)/index'
+        name="(home)/index"
         options={{
-          title: 'SUPAVERSE',
+          title: "SUPAVERSE",
           tabBarIcon: ({ color }) => (
-            <Octicons name='home' size={24} color={color} />
+            <Octicons name="home" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name='push/index'
+        name="push/index"
         options={{
-          title: 'Push',
+          title: "Push",
           tabBarIcon: ({ color }) => (
-            <Octicons name='diff-added' size={24} color={color} />
+            <Octicons name="diff-added" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name='messages/index'
+        name="messages"
         options={{
-          title: 'Messages',
+          title: "Messages",
           tabBarIcon: ({ color }) => (
-            <Octicons name='comment-discussion' size={24} color={color} />
+            <Octicons name="comment-discussion" size={24} color={color} />
+          ),
+          headerRight: ({ tintColor }) => (
+            <Link href="/messages/new-message" asChild>
+              <TouchableOpacity style={{ marginRight: 16 }}>
+                <Octicons name="diff-added" size={24} color={tintColor} />
+              </TouchableOpacity>
+            </Link>
           ),
         }}
       />
       <Tabs.Screen
-        name='profile/index'
+        name="profile/index"
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Octicons name='person' size={24} color={color} />
+            <Octicons name="person" size={24} color={color} />
           ),
         }}
       />
