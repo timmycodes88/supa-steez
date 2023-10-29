@@ -29,7 +29,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name='(home)/index'
         options={{
-          title: 'SUPAHOT',
+          title: 'SUPAVERSE',
           tabBarIcon: ({ color }) => (
             <Octicons name='home' size={24} color={color} />
           ),
