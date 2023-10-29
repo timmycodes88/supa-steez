@@ -1,4 +1,4 @@
-import { COLORS, SIZES } from '../../constants/theme'
+import { COLORS, SIZES } from '../../../constants/theme'
 
 const auth = {
   container: {
@@ -15,13 +15,12 @@ const auth = {
   },
   header: { alignItems: 'center', marginBottom: 40 },
   title: {
-    fontSize: SIZES.xxl,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    maxWidth: '80%',
+    maxHeight: 100,
+    objectFit: 'contain',
   },
   desc: {
-    fontSize: SIZES.md,
-    fontWeight: 'normal',
+    fontSize: SIZES.lg,
   },
   input: {
     width: '80%',
@@ -63,10 +62,8 @@ const lightAuth = {
   },
   mainView: auth.mainView,
   header: auth.header,
-  title: {
-    ...auth.title,
-    color: COLORS.light.foreground,
-  },
+  title: auth.title,
+
   desc: {
     ...auth.desc,
     color: COLORS.light.foreground,
@@ -98,10 +95,7 @@ const darkAuth = {
   },
   mainView: auth.mainView,
   header: auth.header,
-  title: {
-    ...auth.title,
-    color: COLORS.dark.foreground,
-  },
+  title: auth.title,
   desc: {
     ...auth.desc,
     color: COLORS.dark.foreground,

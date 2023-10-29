@@ -1,17 +1,17 @@
 import { View, Text, TextInput, Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import useTheme from '../../../hooks/useTheme'
-import authStyleSheets from '../styles'
+import useTheme from '../../hooks/useTheme'
+import authStyleSheets from './styles/styles'
 import { useRouter } from 'expo-router'
-import useUser from '../../../hooks/useUser'
+import useUserStore from '../../hooks/useUserStore'
 import { useEffect, useState } from 'react'
 import { Button } from 'react-native'
-import supabase from '../../../lib/supabase'
+import supabase from '../../lib/supabase'
 
 export default function CreateAccount() {
   const { styles } = useTheme(authStyleSheets)
   const router = useRouter()
-  const { account, setAccount } = useUser()
+  const { account, setAccount } = useUserStore()
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)

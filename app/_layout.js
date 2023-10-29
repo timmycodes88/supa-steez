@@ -1,14 +1,15 @@
 import { Slot, SplashScreen, useRouter } from 'expo-router'
 import { useEffect, useRef } from 'react'
-import useUser from '../hooks/useUser'
+import useUserStore from '../hooks/useUserStore'
 import supabase from '../lib/supabase'
+import { View, useColorScheme } from 'react-native'
 
 SplashScreen.preventAutoHideAsync()
 
 export default function Base() {
   const router = useRouter()
   const { setSession, setUser, setAccount, loading, setLoading, clear } =
-    useUser()
+    useUserStore()
   const loadingRef = useRef(loading)
 
   useEffect(() => {
@@ -27,10 +28,7 @@ export default function Base() {
         .eq('id', session.user.id)
         .single()
 
-      console.log(account)
-
       if (!account) {
-        console.log('Seeing this')
         setLoading(false)
         router.replace('/create-account')
         return
@@ -73,5 +71,11 @@ export default function Base() {
     setTimeout(() => (loadingRef.current = false), 10)
   }, [loading])
 
-  return <Slot />
+  const dark = useColorScheme() === 'dark'
+
+  return (
+    <View style={{ flex: 1 }}>
+      <Slot />
+    </View>
+  )
 }

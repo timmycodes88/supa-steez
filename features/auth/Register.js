@@ -3,23 +3,24 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
   Button,
+  Image,
 } from 'react-native'
-import useAuthForm from '../hooks/useAuthForm'
-import useTheme from '../../../hooks/useTheme'
-import authStyleSheets from '../styles'
+import useAuthForm from './hooks/useAuthForm'
+import useTheme from '@hooks/useTheme'
+import authStyleSheets from './styles/styles'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useRef, useState } from 'react'
-import GoogleImage from '../../../assets/images/auth/google.png'
 import { Octicons } from '@expo/vector-icons'
-import { COLORS } from '../../../constants/theme'
+import { COLORS } from '@constants/theme'
 import { useRouter } from 'expo-router'
+import SocialLogins from './components/SocialLogins'
+import Shine from '@assets/images/auth/shine.png'
 
-export default function Login() {
+export default function Register() {
   const router = useRouter()
   const { styles, theme } = useTheme(authStyleSheets)
-  const { email, setEmail, password, setPassword, signInWithEmail, loading } =
+  const { email, setEmail, password, setPassword, signUpWithEmail, loading } =
     useAuthForm()
 
   const [hidePassword, setHidePassword] = useState(true)
@@ -34,8 +35,8 @@ export default function Login() {
     >
       <View style={styles.mainView}>
         <View style={styles.header}>
-          <Text style={styles.title}>Supa Hot Login</Text>
-          <Text style={styles.desc}>Welcome Back!</Text>
+          <Image source={Shine} style={styles.title} />
+          <Text style={styles.desc}>Create an account to get started</Text>
         </View>
         <TextInput
           value={email}
@@ -52,13 +53,13 @@ export default function Login() {
           <TextInput
             ref={passwordInputRef}
             value={password}
-            returnKeyType='go'
+            returnKeyType='join'
             textContentType='password'
             secureTextEntry={hidePassword}
             onChangeText={text => setPassword(text)}
             style={styles.input}
             placeholder='Enter your password'
-            onSubmitEditing={signInWithEmail}
+            onSubmitEditing={signUpWithEmail}
           />
           <TouchableOpacity
             style={{
@@ -76,18 +77,14 @@ export default function Login() {
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.actionButton} onPress={signInWithEmail}>
+        <TouchableOpacity style={styles.actionButton} onPress={signUpWithEmail}>
           {loading ? (
             <Text>Loading...</Text>
           ) : (
-            <Text style={styles.actionButtonText}>Login</Text>
+            <Text style={styles.actionButtonText}>Create Account</Text>
           )}
         </TouchableOpacity>
-        <View style={{ flexDirection: 'row', gap: 32, marginTop: 20 }}>
-          <SocialLoginButton img={GoogleImage} styles={styles} />
-          <SocialLoginButton img={GoogleImage} styles={styles} />
-          <SocialLoginButton img={GoogleImage} styles={styles} />
-        </View>
+        <SocialLogins />
         <View
           style={{
             flexDirection: 'row',
@@ -97,32 +94,11 @@ export default function Login() {
           }}
         >
           <Text style={{ color: COLORS[theme].foreground }}>
-            Don't have an account?
+            Already have an account?
           </Text>
-          <Button
-            title='Register'
-            onPress={() => router.push('/(auth)/register')}
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            gap: 4,
-            alignItems: 'center',
-            marginTop: 10,
-          }}
-        >
-          <Button title='Forgot Password?' onPress={() => {}} />
+          <Button title='Login' onPress={() => router.push('/(auth)/login')} />
         </View>
       </View>
     </KeyboardAwareScrollView>
-  )
-}
-
-function SocialLoginButton({ img, styles, onPress }) {
-  return (
-    <TouchableOpacity style={styles.socialBtn} onPress={onPress}>
-      <Image source={img} style={styles.socialImg} />
-    </TouchableOpacity>
   )
 }

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const useUser = create(set => ({
+const useUserStore = create(set => ({
   loading: true,
   user: null,
   session: null,
@@ -12,4 +12,4 @@ const useUser = create(set => ({
   clear: () => set({ user: null, session: null, account: null }),
 }))
 
-export default useUser
+export default useUserStore
