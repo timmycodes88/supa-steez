@@ -1,9 +1,5 @@
-import { View, Text } from 'react-native'
+import Login from '../../../features/auth/components/Login'
 
-export default function Login() {
-  return (
-    <View>
-      <Text>Login</Text>
-    </View>
-  )
+export default function LoginPage() {
+  return <Login />
 }

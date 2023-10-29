@@ -1,9 +1,5 @@
-import { View, Text } from 'react-native'
+import Register from '../../../features/auth/components/Register'
 
-export default function Register() {
-  return (
-    <View>
-      <Text>Register</Text>
-    </View>
-  )
+export default function RegisterPage() {
+  return <Register />
 }

@@ -8,6 +8,10 @@
       "expo-router"
     ],
     "name": "supa-steez",
-    "slug": "supa-steez"
+    "slug": "supa-steez",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover"
+    }
   }
 }
