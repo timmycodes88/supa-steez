@@ -7,12 +7,32 @@
     "plugins": [
       "expo-router"
     ],
+    "orientation": "portrait",
+    "version": "1.0.0",
     "icon": "./assets/images/icon.png",
-    "name": "supa-steez",
-    "slug": "supa-steez",
+    "name": "Supaverse",
+    "slug": "supaverse",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover"
-    }
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1bc33af0-bda9-41d5-aeb4-12dd48bbf3e9"
+      }
+    },
+    "owner": "tim88"
   }
 }
