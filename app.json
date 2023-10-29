@@ -7,6 +7,7 @@
     "plugins": [
       "expo-router"
     ],
+    "icon": "./assets/images/icon.png",
     "name": "supa-steez",
     "slug": "supa-steez",
     "splash": {
