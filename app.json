@@ -38,6 +38,12 @@
         "projectId": "1bc33af0-bda9-41d5-aeb4-12dd48bbf3e9"
       }
     },
-    "owner": "tim88"
+    "owner": "tim88",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1bc33af0-bda9-41d5-aeb4-12dd48bbf3e9"
+    }
   }
 }
