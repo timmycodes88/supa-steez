@@ -8,7 +8,7 @@
       "expo-router"
     ],
     "orientation": "portrait",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "icon": "./assets/images/icon.png",
     "name": "Supaverse",
     "slug": "supaverse",
@@ -19,7 +19,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "1.0.3",
+      "buildNumber": "1.0.4",
       "userInterfaceStyle": "automatic",
       "bundleIdentifier": "com.brightsidedeveloper.supaverse"
     },

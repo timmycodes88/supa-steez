@@ -15,7 +15,7 @@ export default function GroupCard({
 }) {
   const { styles, theme } = useTheme(GroupListStyleSheets)
   return (
-    <Link href={`/messages/${id}`} asChild>
+    <Link href={`/message/${id}`} asChild>
       <TouchableOpacity style={styles.cardContainer}>
         <Avatar name={name} url={image_url} />
         <View style={{ maxWidth: "80%", width: "100%" }}>
