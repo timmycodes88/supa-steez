@@ -35,8 +35,12 @@ export default function GroupCard({
                 marginRight: -10,
               }}
             >
-              <Text>{last_timestamp}</Text>
-              <Octicons name="chevron-right" size={24} />
+              <Text style={styles.cardTime}>{last_timestamp}</Text>
+              <Octicons
+                name="chevron-right"
+                size={24}
+                style={styles.cardTime}
+              />
             </View>
           </View>
           <View
@@ -48,7 +52,7 @@ export default function GroupCard({
               gap: 16,
             }}
           >
-            <Text>{last_msg}</Text>
+            <Text style={styles.cardLastMsg}>{last_msg}</Text>
             <View
               style={{
                 width: 8,

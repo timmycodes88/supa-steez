@@ -5,7 +5,7 @@ import { COLORS } from "../../../../constants/theme"
 export default function Messages() {
   const theme = useColorScheme()
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS[theme].backgroundColor }}>
+    <View style={{ flex: 1, backgroundColor: COLORS[theme].background }}>
       <GroupList />
     </View>
   )

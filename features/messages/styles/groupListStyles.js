@@ -33,6 +33,11 @@ const light = {
     ...main.cardLastMsg,
     color: COLORS.light.foreground,
   },
+  cardTime: {
+    ...main.cardLastMsg,
+    color: COLORS.light.mutedForeground,
+    opacity: 0.8,
+  },
 }
 
 const dark = {
@@ -42,10 +47,16 @@ const dark = {
   },
   cardName: {
     ...main.cardName,
+    color: COLORS.dark.foreground,
   },
   cardLastMsg: {
     ...main.cardLastMsg,
     color: COLORS.dark.foreground,
+  },
+  cardTime: {
+    ...main.cardLastMsg,
+    color: COLORS.dark.mutedForeground,
+    opacity: 0.8,
   },
 }
 
