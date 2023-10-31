@@ -26,6 +26,7 @@ export default function GroupList() {
         data={mock}
         renderItem={({ item }) => <GroupCard {...item} />}
         keyExtractor={({ id }) => id}
+        style={{ height: "100%" }}
       />
     </View>
   )

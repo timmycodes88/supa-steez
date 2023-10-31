@@ -12,14 +12,13 @@ export default function Base() {
     useUserStore()
   const loadingRef = useRef(loading)
 
+  // useEffect(() => {
+  //   setSession({})
+  //   setUser({ id: "123" })
+  //   setAccount({ id: "123", username: "tim88", name: "Tim Van lerberg" })
+  //   setLoading(false)
+  // }, [])
   useEffect(() => {
-    setSession({})
-    setUser({ id: "123" })
-    setAccount({ id: "123", username: "tim88", name: "Tim Van lerberg" })
-    setLoading(false)
-  }, [])
-  useEffect(() => {
-    if (true) return
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session)
       setUser(session?.user ?? null)

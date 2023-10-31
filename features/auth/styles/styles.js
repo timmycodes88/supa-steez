@@ -1,29 +1,29 @@
-import { COLORS, SIZES } from '../../../constants/theme'
+import { COLORS, SIZES } from "../../../constants/theme"
 
 const auth = {
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   mainView: {
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
     gap: 5,
   },
-  header: { alignItems: 'center', marginBottom: 40 },
+  header: { alignItems: "center", marginBottom: 40 },
   title: {
-    maxWidth: '80%',
+    maxWidth: "80%",
     maxHeight: 100,
-    objectFit: 'contain',
+    objectFit: "contain",
   },
   desc: {
     fontSize: SIZES.lg,
   },
   input: {
-    width: '80%',
+    width: "80%",
     height: 50,
     borderWidth: 1,
     borderRadius: 5,
@@ -31,23 +31,23 @@ const auth = {
     marginVertical: 10,
   },
   actionButton: {
-    width: '80%',
+    width: "80%",
     height: 50,
     borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   actionButtonText: {
     fontSize: SIZES.md,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   socialBtn: {
     width: 44,
     height: 44,
     borderWidth: 1,
     borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   socialImg: {
     maxWidth: 32,
@@ -79,7 +79,7 @@ const lightAuth = {
   },
   actionButtonText: {
     ...auth.actionButtonText,
-    color: COLORS.light.foreground,
+    color: "#fff",
   },
   socialBtn: {
     ...auth.socialBtn,
@@ -111,7 +111,7 @@ const darkAuth = {
   },
   actionButtonText: {
     ...auth.actionButtonText,
-    color: COLORS.dark.foreground,
+    color: "#fff",
   },
   socialBtn: {
     ...auth.socialBtn,

@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
-import homeStyles from '../styles/styles'
-import useTheme from '@hooks/useTheme'
-import useUserStore from '@hooks/useUserStore'
-import { COLORS } from '../../../constants/theme'
+import { View, Text, TouchableOpacity } from "react-native"
+import React from "react"
+import homeStyles from "../styles/styles"
+import useTheme from "@hooks/useTheme"
+import useUserStore from "@hooks/useUserStore"
+import { COLORS } from "../../../constants/theme"
 
 export default function EndOfPushes() {
   const { styles, theme } = useTheme(homeStyles)
@@ -19,15 +19,15 @@ export default function EndOfPushes() {
       </Text>
       <TouchableOpacity
         style={{
-          width: '100%',
+          width: "100%",
           paddingVertical: 8,
-          alignItems: 'center',
+          alignItems: "center",
           backgroundColor: COLORS[theme].primary,
           borderRadius: 8,
           marginVertical: 32,
         }}
       >
-        <Text style={[styles.text, { fontSize: 20, fontWeight: '700' }]}>
+        <Text style={{ fontSize: 20, fontWeight: "700", color: "#fff" }}>
           Find Friends
         </Text>
       </TouchableOpacity>
