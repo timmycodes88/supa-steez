@@ -1,5 +1,6 @@
-import { FlatList, View } from "react-native"
+import { FlatList, View, useColorScheme } from "react-native"
 import GroupCard from "./components/GroupList/GroupCard"
+import { COLORS } from "../../constants/theme"
 
 const mock = [
   {
@@ -26,7 +27,9 @@ export default function GroupList() {
         data={mock}
         renderItem={({ item }) => <GroupCard {...item} />}
         keyExtractor={({ id }) => id}
-        style={{ height: "100%" }}
+        style={{
+          height: "100%",
+        }}
       />
     </View>
   )
