@@ -12,6 +12,13 @@ const Home = {
     gap: 12,
     borderBottomWidth: 1,
   },
+  avatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   header: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -58,6 +65,7 @@ const lightHome = {
     ...Home.card,
     borderBottomColor: COLORS.light.mutedBackground,
   },
+  avatar: Home.avatar,
   header: Home.header,
   name: {
     ...Home.name,
@@ -89,6 +97,7 @@ const darkHome = {
     ...Home.card,
     borderBottomColor: COLORS.dark.mutedBackground,
   },
+  avatar: Home.avatar,
   header: Home.header,
   name: {
     ...Home.name,

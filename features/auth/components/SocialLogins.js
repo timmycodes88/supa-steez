@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, Image, useColorScheme } from "react-native"
+import { View, TouchableOpacity, Image } from "react-native"
 import useAuthForm from "@features/auth/hooks/useAuthForm"
 import AppleImage from "@assets/images/auth/apple.png"
 import GoogleImage from "@assets/images/auth/google.png"
@@ -32,7 +32,7 @@ export default function SocialLogins() {
 }
 
 function SocialLoginButton({ img, styles, onPress, apple, X, discord }) {
-  const dark = useColorScheme() === "dark"
+  const dark = useTheme().theme === "dark"
   return (
     <TouchableOpacity style={styles.socialBtn} onPress={onPress}>
       <Image

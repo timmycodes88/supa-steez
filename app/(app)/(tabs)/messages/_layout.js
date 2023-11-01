@@ -1,10 +1,11 @@
 import { Octicons } from "@expo/vector-icons"
 import { Link, Stack } from "expo-router"
-import { TouchableOpacity, useColorScheme } from "react-native"
+import { TouchableOpacity } from "react-native"
 import { COLORS } from "../../../../constants/theme"
+import useTheme from "../../../../hooks/useTheme"
 
 export default function MessagesLayout() {
-  const theme = useColorScheme()
+  const { theme } = useTheme()
   return (
     <Stack
       screenOptions={{

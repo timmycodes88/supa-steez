@@ -1,8 +1,10 @@
 import { Octicons } from "@expo/vector-icons"
 import { Stack } from "expo-router"
 import { TouchableOpacity } from "react-native"
+import useTheme from "@hooks/useTheme"
 
 export default function RootLayout() {
+  const { theme } = useTheme()
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen

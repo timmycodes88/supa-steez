@@ -1,10 +1,10 @@
-import { View, Text, FlatList } from 'react-native'
-import useTheme from '@hooks/useTheme'
-import homeStyles from './styles/styles'
-import PushCard, { SkeletonPushCard } from './components/PushCard'
-import useFeedStore from './hooks/useFeedStore'
-import { useEffect } from 'react'
-import EndOfPushes from './components/EndOfPushes'
+import { View, Text, FlatList } from "react-native"
+import useTheme from "@hooks/useTheme"
+import homeStyles from "./styles/styles"
+import PushCard, { SkeletonPushCard } from "./components/PushCard"
+import useFeedStore from "./hooks/useFeedStore"
+import { useEffect } from "react"
+import EndOfPushes from "./components/EndOfPushes"
 
 /**
  * @typedef {Object} Push
@@ -21,56 +21,56 @@ import EndOfPushes from './components/EndOfPushes'
  */
 const mock = [
   {
-    id: '1',
+    id: "1",
     author: {
-      username: 'thegoat',
-      name: 'The Goat',
-      avatar_url: 'https://avatars.githubusercontent.com/u/60869810?v=4',
+      username: "thegoat",
+      name: "The Goat",
+      avatar_url: "https://avatars.githubusercontent.com/u/60869810?v=4",
     },
-    text: 'This is going to be the greatest app ever!',
-    image: 'https://picsum.photos/1920/1080',
+    text: "This is going to be the greatest app ever!",
+    image: "https://picsum.photos/1920/1080",
     video: undefined,
-    likes: ['thegoat', 'thegoat', 'thegoat'],
-    replies: ['thegoat', 'thegoat', 'thegoat', 'thegoat', 'thegoat'],
+    likes: ["thegoat", "thegoat", "thegoat"],
+    replies: ["thegoat", "thegoat", "thegoat", "thegoat", "thegoat"],
   },
   {
-    id: '2',
+    id: "2",
     author: {
-      username: 'thegoat',
-      name: 'The Goat',
-      avatar_url: 'https://avatars.githubusercontent.com/u/60869810?v=4',
+      username: "thegoat",
+      name: "The Goat",
+      avatar_url: "https://avatars.githubusercontent.com/u/60869810?v=4",
     },
-    text: 'This is going to be the greatest app ever!',
-    image: 'https://picsum.photos/1080/1920',
+    text: "This is going to be the greatest app ever!",
+    image: "https://picsum.photos/1080/1920",
     video: undefined,
-    likes: ['thegoat', 'thegoat', 'thegoat', 'thegoat', 'thegoat'],
-    replies: ['thegoat', 'thegoat', 'thegoat', 'thegoat'],
+    likes: ["thegoat", "thegoat", "thegoat", "thegoat", "thegoat"],
+    replies: ["thegoat", "thegoat", "thegoat", "thegoat"],
   },
   {
-    id: '3',
+    id: "3",
     author: {
-      username: 'thegoat',
-      name: 'The Goat',
-      avatar_url: 'https://avatars.githubusercontent.com/u/60869810?v=4',
+      username: "thegoat",
+      name: "The Goat",
+      avatar_url: "https://avatars.githubusercontent.com/u/60869810?v=4",
     },
-    text: 'This is going to be the greatest app ever!',
-    image: 'https://picsum.photos/1080/1080',
+    text: "This is going to be the greatest app ever!",
+    image: "https://picsum.photos/1080/1080",
     video: undefined,
-    likes: ['thegoat', 'thegoat', 'thegoat', 'thegoat'],
-    replies: ['thegoat', 'thegoat'],
+    likes: ["thegoat", "thegoat", "thegoat", "thegoat"],
+    replies: ["thegoat", "thegoat"],
   },
   {
-    id: '4',
+    id: "4",
     author: {
-      username: 'thegoat',
-      name: 'The Goat',
-      avatar_url: 'https://avatars.githubusercontent.com/u/60869810?v=4',
+      username: "thegoat",
+      name: "The Goat",
+      avatar_url: "https://avatars.githubusercontent.com/u/60869810?v=4",
     },
-    text: 'This is going to be the greatest app ever!',
-    image: 'https://picsum.photos/2688/1440',
+    text: "This is going to be the greatest app ever!",
+    image: "https://picsum.photos/2688/1440",
     video: undefined,
-    likes: ['thegoat', 'thegoat', 'thegoat'],
-    replies: ['thegoat', 'thegoat', 'thegoat', 'thegoat'],
+    likes: ["thegoat", "thegoat", "thegoat"],
+    replies: ["thegoat", "thegoat", "thegoat", "thegoat"],
   },
 ]
 
@@ -99,7 +99,7 @@ export default function Feed() {
         data={feed}
         renderItem={({ item }) => <PushCard push={item} />}
         keyExtractor={({ id }) => id}
-        style={{ minHeight: '100%', paddingTop: 8 }}
+        style={{ minHeight: "100%", paddingTop: 8 }}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<EndOfPushes />}
         onEndReachedThreshold={2}

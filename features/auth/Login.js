@@ -5,17 +5,17 @@ import {
   TouchableOpacity,
   Image,
   Button,
-} from 'react-native'
-import useAuthForm from './hooks/useAuthForm'
-import useTheme from '@hooks/useTheme'
-import authStyleSheets from './styles/styles'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { useRef, useState } from 'react'
-import { Octicons } from '@expo/vector-icons'
-import { COLORS } from '@constants/theme'
-import { useRouter } from 'expo-router'
-import SocialLogins from './components/SocialLogins'
-import Shine from '@assets/images/auth/shine.png'
+} from "react-native"
+import useAuthForm from "./hooks/useAuthForm"
+import useTheme from "@hooks/useTheme"
+import authStyleSheets from "./styles/styles"
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
+import { useRef, useState } from "react"
+import { Octicons } from "@expo/vector-icons"
+import { COLORS } from "@constants/theme"
+import { useRouter } from "expo-router"
+import SocialLogins from "./components/SocialLogins"
+import Shine from "@assets/images/auth/shine.png"
 
 export default function Login() {
   const router = useRouter()
@@ -29,7 +29,7 @@ export default function Login() {
 
   return (
     <KeyboardAwareScrollView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       contentContainerStyle={styles.container}
       scrollEnabled={false}
     >
@@ -40,38 +40,40 @@ export default function Login() {
         </View>
         <TextInput
           value={email}
-          returnKeyType='next'
+          returnKeyType="next"
+          autoCapitalize="none"
           onEndEditing={() => passwordInputRef.current.focus()}
-          textContentType='emailAddress'
+          textContentType="emailAddress"
           onChangeText={text => setEmail(text)}
           style={styles.input}
-          placeholder='Enter your email'
+          placeholder="Enter your email"
         />
         <View
-          style={{ width: '100%', alignItems: 'center', position: 'relative' }}
+          style={{ width: "100%", alignItems: "center", position: "relative" }}
         >
           <TextInput
             ref={passwordInputRef}
             value={password}
-            returnKeyType='go'
-            textContentType='password'
+            autoCapitalize="none"
+            returnKeyType="go"
+            textContentType="password"
             secureTextEntry={hidePassword}
             onChangeText={text => setPassword(text)}
             style={styles.input}
-            placeholder='Enter your password'
+            placeholder="Enter your password"
             onSubmitEditing={signInWithEmail}
           />
           <TouchableOpacity
             style={{
-              position: 'absolute',
-              right: '12%',
-              top: '50%',
+              position: "absolute",
+              right: "12%",
+              top: "50%",
               transform: [{ translateY: -12 }],
             }}
             onPress={() => setHidePassword(!hidePassword)}
           >
             <Octicons
-              name={hidePassword ? 'eye' : 'eye-closed'}
+              name={hidePassword ? "eye" : "eye-closed"}
               size={24}
               color={COLORS[theme].mutedForeground}
             />
@@ -87,9 +89,9 @@ export default function Login() {
         <SocialLogins />
         <View
           style={{
-            flexDirection: 'row',
+            flexDirection: "row",
             gap: 4,
-            alignItems: 'center',
+            alignItems: "center",
             marginTop: 10,
           }}
         >
@@ -97,20 +99,20 @@ export default function Login() {
             Don't have an account?
           </Text>
           <Button
-            title='Register'
-            onPress={() => router.push('/(auth)/register')}
+            title="Register"
+            onPress={() => router.push("/(auth)/register")}
           />
         </View>
         <View
           style={{
-            flexDirection: 'row',
+            flexDirection: "row",
             gap: 4,
-            alignItems: 'center',
-            position: 'absolute',
+            alignItems: "center",
+            position: "absolute",
             bottom: 30,
           }}
         >
-          <Button title='Forgot Password?' onPress={() => {}} />
+          <Button title="Forgot Password?" onPress={() => {}} />
         </View>
       </View>
     </KeyboardAwareScrollView>

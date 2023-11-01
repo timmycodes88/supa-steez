@@ -1,3 +1,5 @@
+import { Octicons } from "@expo/vector-icons"
+import { useState } from "react"
 import {
   View,
   Text,
@@ -6,9 +8,11 @@ import {
   TextInput,
   StyleSheet,
   Button,
+  TouchableOpacity,
 } from "react-native"
 
-export default function chat() {
+export default function Chat() {
+  const [message, setMessage] = useState("")
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -33,11 +37,15 @@ export default function chat() {
 
       {/* Text input and send button */}
       <View style={styles.inputContainer}>
+        <TouchableOpacity>
+          <Octicons name="plus" size={24} />
+        </TouchableOpacity>
         <TextInput
           style={styles.input}
           placeholder="Type your message..."
-          // value={this.state.message}
-          onChangeText={text => {}}
+          value={message}
+          onChangeText={setMessage}
+          returnKeyLabel=""
         />
         <Button title="Send" onPress={() => {}} />
       </View>
@@ -70,11 +78,14 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
+    gap: 10,
     alignItems: "center",
-    padding: 10,
+    padding: 16,
+    paddingBottom: 40,
   },
   input: {
     flex: 1,
+    minHeight: 40,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 20,

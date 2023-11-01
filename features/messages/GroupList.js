@@ -1,6 +1,5 @@
-import { FlatList, View, useColorScheme } from "react-native"
+import { FlatList, View } from "react-native"
 import GroupCard from "./components/GroupList/GroupCard"
-import { COLORS } from "../../constants/theme"
 
 const mock = [
   {

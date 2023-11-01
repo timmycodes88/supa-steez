@@ -1,10 +1,10 @@
 import { Octicons } from "@expo/vector-icons"
 import { Link, Tabs } from "expo-router"
-import { TouchableOpacity, useColorScheme } from "react-native"
+import useTheme from "@hooks/useTheme"
 import { COLORS } from "../../../constants/theme"
 
 export default function TabsLayout() {
-  const theme = useColorScheme()
+  const { theme } = useTheme()
 
   return (
     <Tabs
