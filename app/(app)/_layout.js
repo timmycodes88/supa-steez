@@ -6,7 +6,11 @@ import useTheme from "@hooks/useTheme"
 export default function RootLayout() {
   const { theme } = useTheme()
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen
         name="message/[id]"
         options={{

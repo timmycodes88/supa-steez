@@ -10,27 +10,48 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native"
+import { COLORS } from "../../../constants/theme"
+import useTheme from "../../../hooks/useTheme"
+import Avatar from "@components/Avatar"
 
 export default function Chat() {
+  const { theme } = useTheme()
   const [message, setMessage] = useState("")
   return (
     <KeyboardAvoidingView
-      style={styles.container}
+      style={[styles.container, { backgroundColor: COLORS[theme].background }]}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       {/* Display chat messages */}
       <View style={styles.messagesContainer}>
         {[
           { user: "me", text: "Hello" },
-          { user: "other", text: "Hi" },
+          { user: "Billy Bob", text: "Hi" },
+          { user: "Billy Bob", text: "How are you?" },
+          { user: "me", text: "This is incredible, making some mock data rn" },
+          {
+            user: "Billy Bob",
+            text: "Oh yea good stuff, now you have a better idea of what this will look like when it comes to really long messages which will defiently happen the more users you get on this app!",
+          },
         ].map((message, index) => (
           <View
-            key={index}
-            style={
-              message.user === "me" ? styles.myMessage : styles.otherMessage
-            }
+            style={{
+              flexDirection: "row",
+              justifyContent: message.user === "me" ? "flex-end" : "flex-start",
+            }}
           >
-            <Text>{message.text}</Text>
+            {message.user !== "me" && <Avatar name={message.user} url="" />}
+            <View
+              key={index}
+              style={
+                message.user === "me" ? styles.myMessage : styles.otherMessage
+              }
+            >
+              {message.user !== "me" && (
+                <Text style={styles.messageAuthor}>{message.user}</Text>
+              )}
+              <Text style={styles.messageText}>{message.text}</Text>
+            </View>
           </View>
         ))}
       </View>
@@ -38,7 +59,7 @@ export default function Chat() {
       {/* Text input and send button */}
       <View style={styles.inputContainer}>
         <TouchableOpacity>
-          <Octicons name="plus" size={24} />
+          <Octicons name="plus" size={24} color={COLORS[theme].primary} />
         </TouchableOpacity>
         <TextInput
           style={styles.input}
@@ -61,20 +82,30 @@ const styles = StyleSheet.create({
   messagesContainer: {
     flex: 1,
     padding: 10,
+    gap: 8,
   },
   myMessage: {
     alignSelf: "flex-end",
     backgroundColor: "#DCF8C6",
     padding: 10,
+    maxWidth: "70%",
     borderRadius: 10,
     marginBottom: 5,
   },
   otherMessage: {
     alignSelf: "flex-start",
     backgroundColor: "#EAEAEA",
+    maxWidth: "70%",
     padding: 10,
     borderRadius: 10,
     marginBottom: 5,
+  },
+  messageAuthor: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  messageText: {
+    fontSize: 16,
   },
   inputContainer: {
     flexDirection: "row",
